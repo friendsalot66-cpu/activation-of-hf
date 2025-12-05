@@ -1,0 +1,15 @@
+name: Keep Hugging Face Space Active
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"  # 每 2 小時執行一次（UTC 時間）
+  workflow_dispatch:       # 支持手動觸發
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Hugging Face Space
+        run: |
+          curl -sS https://Terrywong0606-n8n-free.hf.space/healthz || \
+          curl -sS https://Terrywong0606-n8n-free.hf.space/
